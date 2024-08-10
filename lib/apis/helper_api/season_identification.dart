@@ -8,13 +8,11 @@ class SeasonIdntification{
     DateTime now = DateTime.now();
     int month = now.month;
 
-    if (month == 12 || month == 1 || month == 2) {
+    if (month == 11 || month == 12 || month == 1 || month == 2) {
       return 'Winter';
-    } else if (month >= 3 && month <= 5) {
-      return 'Spring';
-    } else if (month >= 6 && month <= 8) {
+    } else if (month >= 3 && month <= 6) {
       return 'Summer';
-    } else if (month >= 9 && month <= 11) {
+    } else if (month >= 6 && month <= 10) {
       return 'Monsoon';
     } else {
       return 'Unknown Season';

@@ -18,7 +18,6 @@ class AppColors {
       "primaryColor":hexStringToColors("#609966"),
       "fontColor" :hexStringToColors("#000000"),
       "secondaryColor" :hexStringToColors("#ffffff"),
-
     },
 
   };
