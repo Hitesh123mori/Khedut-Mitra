@@ -24,12 +24,16 @@ class SeasonIdntification{
       'Barley',
       'Rapeseed',
       'Wheat',
+      'masoor',
+      'moong',
+      'urad',
     ],
     'Monsoon': [
-      'Bajra',
       'Jowar',
-      'Soybean',
       'Rice',
+      'ragi',
+      'jowar',
+      'sugarcane',
     ],
     'Summer': [
        'Pumpkin'

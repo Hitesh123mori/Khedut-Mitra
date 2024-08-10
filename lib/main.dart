@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hack_24/screens/auth_screens/login_screen.dart';
 import 'package:hack_24/screens/auth_screens/splash_screen.dart';
 import 'package:hack_24/screens/home_screens/home_screen.dart';
+import 'package:hack_24/screens/utils/widgets/line_chart.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 
@@ -39,6 +40,7 @@ class _KhedutMitraState extends State<KhedutMitra> {
         primarySwatch: Colors.green,
       ),
       home: SplashScreen(),
+      // home:LineChartApp(),
     );
   }
 }
