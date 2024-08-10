@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../apis/open_ai_api/agree_ai_api.dart';
 import '../../apis/var_setup.dart';
 import '../models/app_user.dart';
 
@@ -7,6 +8,7 @@ class AppUserProvider extends ChangeNotifier {
 
   AppUserProvider() {
     _initializeUser();
+
   }
 
   AppUser? get user => _user;
@@ -25,6 +27,7 @@ class AppUserProvider extends ChangeNotifier {
           city: doc.data()?['city'] ?? 'Unknown City',
           state: doc.data()?['state'] ?? 'Unknown State',
           currCrops: (doc.data()?['currCrops'] as List<dynamic>?)?.cast<String>() ?? [],
+          curDeaseas: doc.data()?['curDeaseas'] ?? 'Unknown Decease',
         );
       } else {
         _user = null;
@@ -47,4 +50,7 @@ class AppUserProvider extends ChangeNotifier {
     _user = null;
     notifyListeners();
   }
+
+
+
 }

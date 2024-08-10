@@ -34,8 +34,7 @@ class SeasonIdntification{
     'Summer': [
        'Pumpkin'
       'Cucumber',
-      'Bitter Gourd.',
-
+      'Bitter Gourd',
     ],
   };
 

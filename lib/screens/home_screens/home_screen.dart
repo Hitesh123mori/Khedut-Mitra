@@ -34,14 +34,16 @@ class _HomeScreenState extends State<HomeScreen> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: AppColors.theme['primaryColor'],
-          onPressed: () {},
-          child: Icon(
-            Icons.document_scanner_outlined,
-            color: AppColors.theme['secondaryColor'],
-          ),
-        ),
+
+        // floatingActionButton: FloatingActionButton(
+        //   backgroundColor: AppColors.theme['primaryColor'],
+        //   onPressed: () {},
+        //   child: Icon(
+        //     Icons.document_scanner_outlined,
+        //     color: AppColors.theme['secondaryColor'],
+        //   ),
+        // ),
+
         appBar: AppBar(
           centerTitle: true,
           title: Text(

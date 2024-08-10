@@ -1,18 +1,25 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:hack_24/screens/auth_screens/login_screen.dart';
-import 'package:hack_24/screens/auth_screens/splash_screen.dart';
-import 'package:hack_24/screens/provider/user_provider.dart';
+import 'package:hack_24/screens/home_screens/home_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 
+import 'screens/auth_screens/login_screen.dart';
+import 'screens/auth_screens/splash_screen.dart';
+import 'screens/models/app_user.dart';
+import 'screens/provider/user_provider.dart';
 
-late Size mq  ;
+late Size mq;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await _initializeFirebase();
-  // runApp(KhedutMitra()) ;
-  runApp(MultiProvider(providers: [ChangeNotifierProvider(create: (context)=>AppUserProvider())], child: KhedutMitra()));
+
+
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (context) => AppUserProvider())],
+    child: KhedutMitra(),
+  ));
 }
 
 class KhedutMitra extends StatefulWidget {
@@ -31,7 +38,7 @@ class _KhedutMitraState extends State<KhedutMitra> {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: SplashScreen()
+      home: HomeScreen(),
     );
   }
 }
@@ -49,6 +56,5 @@ Future<void> _initializeFirebase() async {
     print('Firebase initialized successfully');
   } catch (e) {
     print('Error initializing Firebase: $e');
-
   }
 }
