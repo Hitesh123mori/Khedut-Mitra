@@ -1,33 +1,35 @@
 class AppUser {
-  AppUser({
-    this.userId,
-    this.name,
-    this.email,
-    this.city,
-    this.state,
-  });
-
-  AppUser.fromJson(Map<String, dynamic> json) {
-    userId = json['userId'];
-    name = json['name'];
-    email = json['email'];
-    city = json['city'];
-    state = json['state'];
-  }
-
-  String? userId;
+  String userId;
   String? name;
   String? email;
   String? city;
   String? state;
+  List<String>? currCrops;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['userId'] = userId;
-    map['name'] = name;
-    map['email'] = email;
-    map['city'] = city;
-    map['state'] = state;
-    return map;
-  }
+  AppUser({
+    required this.userId,
+    this.name,
+    this.email,
+    this.city,
+    this.state,
+    this.currCrops,
+  });
+
+
+  Map<String, dynamic> toJson() => {
+    'userId': userId,
+    'name': name,
+    'email': email,
+    'city': city,
+    'state': state,
+    'currCrops': currCrops,
+  };
 }
+
+
+
+
+
+
+
+

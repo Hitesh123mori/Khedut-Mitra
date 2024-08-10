@@ -19,4 +19,25 @@ class SeasonIdntification{
     }
   }
 
+  static final Map<String, List<String>> seasonPlants = {
+    'Winter': [
+      'Barley',
+      'Rapeseed',
+      'Wheat',
+    ],
+    'Monsoon': [
+      'Bajra',
+      'Jowar',
+      'Soybean',
+      'Rice',
+    ],
+    'Summer': [
+       'Pumpkin'
+      'Cucumber',
+      'Bitter Gourd.',
+
+    ],
+  };
+
+
 }

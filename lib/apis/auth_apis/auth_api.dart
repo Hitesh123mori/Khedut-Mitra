@@ -64,6 +64,7 @@ class AppFirebaseAuth {
       email : email,
       city: city,
       state : state,
+      currCrops: [],
 
     );
     return await FirebaseAPIs.firestore

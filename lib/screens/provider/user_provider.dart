@@ -24,6 +24,7 @@ class AppUserProvider extends ChangeNotifier {
           email: doc.data()?['email'] ?? 'Unknown Email',
           city: doc.data()?['city'] ?? 'Unknown City',
           state: doc.data()?['state'] ?? 'Unknown State',
+          currCrops: (doc.data()?['currCrops'] as List<dynamic>?)?.cast<String>() ?? [],
         );
       } else {
         _user = null;
@@ -34,6 +35,7 @@ class AppUserProvider extends ChangeNotifier {
 
     notifyListeners();
   }
+
 
   void setUser(AppUser? newUser) {
     _user = newUser;
