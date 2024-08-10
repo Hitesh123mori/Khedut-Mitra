@@ -12,7 +12,13 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(),
+      home: Scaffold(
+        body: Center(
+          child: Text("THIS IS PREFOILE SCREEN"),
+        ),
+      ),
     );
   }
 }
+
+

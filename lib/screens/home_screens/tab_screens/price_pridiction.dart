@@ -14,7 +14,7 @@ class _PricePredictionState extends State<PricePrediction> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: Text("THIS IS PREFOILE SCREEN"),
+          child: Text("THIS IS PRICE PREDICTION SCREEN"),
         ),
       ),
 
