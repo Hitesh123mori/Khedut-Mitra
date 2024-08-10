@@ -52,18 +52,6 @@ class _LoginScreenState extends State<LoginScreen> {
     return null;
   }
 
-  String? _validatePassword(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter your password';
-    } else if (value.length < 8) {
-      return 'Password must be at least 8 characters long';
-    } else if (!value.contains(RegExp(r'[A-Z]'))) {
-      return 'Password must contain at least one uppercase letter';
-    } else if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-      return 'Password must contain at least one special character';
-    }
-    return null;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -155,17 +143,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 });
                               },
                             ),
-                            validator: _validatePassword,
                           ),
                         ),
                         SizedBox(height: 20),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: _isLoading
-                              ? CircularProgressIndicator(
-                            color: AppColors.theme["fontColor"],
-                          )
-                              :     AuthButton(
+                          child: AuthButton(
                             onpressed: isButtonEnabled && !_isLoading
                                 ? () async {
                               setState(() {
@@ -177,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   context,
                                   _emailController.text,
                                   _passController.text,
-                                );
+                                ) ;
                                 print("#done");
                               }
                               setState(() {

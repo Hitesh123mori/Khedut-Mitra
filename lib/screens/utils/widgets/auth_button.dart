@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../color.dart';
 
-class AuthButton extends StatelessWidget {
+class AuthButton extends StatefulWidget {
   final Future<void> Function()? onpressed;
   final String name;
   final Color bcolor;
@@ -19,25 +19,30 @@ class AuthButton extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<AuthButton> createState() => _AuthButtonState();
+}
+
+class _AuthButtonState extends State<AuthButton> {
+  @override
   Widget build(BuildContext context) {
     var mq = MediaQuery.of(context).size;
 
     return InkWell(
-      onTap: onpressed,
+      onTap: widget.onpressed,
       child: Center(
         child: AnimatedContainer(
           duration: Duration(milliseconds: 500),
           curve: Curves.easeInOut, // Animation curve
           height: 50,
-          width: isLoading ? mq.width * 0.5 : mq.width * 1,
+          width: widget.isLoading ? mq.width * 0.5 : mq.width * 1,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: bcolor,
+            color: widget.bcolor,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if (isLoading)
+              if (widget.isLoading)
                 Container(
                   height: 25,
                   width: 25,
@@ -48,12 +53,12 @@ class AuthButton extends StatelessWidget {
                     ),
                   ),
                 ),
-              SizedBox(width: isLoading ? 10 : 0),
+              SizedBox(width: widget.isLoading ? 10 : 0),
               Center(
                 child: Text(
-                  name,
+                  widget.name,
                   style: TextStyle(
-                    color: tcolor,
+                    color: widget.tcolor,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),

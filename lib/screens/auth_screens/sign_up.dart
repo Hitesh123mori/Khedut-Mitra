@@ -224,11 +224,7 @@ class _RegisterState extends State<Register> {
                             obsecuretext: false,
                           ),
                           SizedBox(height: 20),
-                          _isLoading
-                              ? CircularProgressIndicator(
-                                  color: AppColors.theme["fontColor"],
-                                )
-                              : AuthButton(
+                          AuthButton(
                                   onpressed: isButtonEnabled
                                       ? () async {
                                           FocusScope.of(context).unfocus();
@@ -271,7 +267,7 @@ class _RegisterState extends State<Register> {
                                 "Already have an account?",
                                 style: TextStyle(
                                   fontSize: 17,
-                                  color: AppColors.theme['secondaryColor'],
+                                  color: AppColors.theme['fontColor'],
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),

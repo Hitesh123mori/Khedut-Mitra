@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart' ;
 
+import '../../apis/auth_apis/auth_api.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -13,7 +15,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-
+        body: Center(
+          child: ElevatedButton(
+            onPressed: ()async{
+              await AppFirebaseAuth.signOut(context);
+            }, child: Text("SIGN OUT"),
+          ),
+        ),
       ),
     );
   }
