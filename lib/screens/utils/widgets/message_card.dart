@@ -47,9 +47,9 @@ class _MessageCardState extends State<MessageCard> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildRow("Best Medicine", aiResponse.bestMedicine),
-              _buildRow("Amount Per Acre", aiResponse.amountPerAcre),
-              _buildRow("Recovery Time", aiResponse.approximateTime),
+              _buildRow("Best Medicine", aiResponse.best_pesticide),
+              _buildRow("Amount Per Acre", aiResponse.amount_per_acre),
+              _buildRow("Recovery Time", aiResponse.recovery_time),
             ],
           ),
         ),

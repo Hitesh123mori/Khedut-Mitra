@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../apis/open_ai_api/agree_ai_api.dart';
 import '../../apis/var_setup.dart';
 import '../models/app_user.dart';
 

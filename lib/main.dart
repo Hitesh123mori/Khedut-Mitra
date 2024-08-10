@@ -1,18 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hack_24/screens/auth_screens/login_screen.dart';
+import 'package:hack_24/screens/auth_screens/splash_screen.dart';
 import 'package:hack_24/screens/home_screens/home_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 
-import 'screens/auth_screens/login_screen.dart';
-import 'screens/auth_screens/splash_screen.dart';
-import 'screens/models/app_user.dart';
 import 'screens/provider/user_provider.dart';
 
 late Size mq;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Gemini.init(apiKey: 'AIzaSyBUlAWqGdBXhhy0CwSH6liMzhX-0E5OnO8');
   await _initializeFirebase();
 
 
@@ -38,7 +38,7 @@ class _KhedutMitraState extends State<KhedutMitra> {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: HomeScreen(),
+      home: SplashScreen(),
     );
   }
 }

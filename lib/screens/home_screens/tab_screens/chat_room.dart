@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hack_24/apis/gen_api.dart';
+import 'package:hack_24/screens/models/app_user.dart';
+import 'package:hack_24/screens/provider/user_provider.dart';
+import 'package:provider/provider.dart';
 import '../../../apis/chat_messages/chat_msg.dart';
 import '../../models/ai_response.dart';
 import '../../models/chat_model.dart';
@@ -22,58 +25,58 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context).size;
 
-    return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: StreamBuilder<List<ChatMessage>>(
-              stream: ChatApi().getChatMessages(),
-              builder: (context, snapshot) {
-                switch (snapshot.connectionState) {
-                  case ConnectionState.waiting:
-                  case ConnectionState.none:
-                    // return Center(child: CircularProgressIndicator());
-                  case ConnectionState.active:
-                  case ConnectionState.done:
-                    if (snapshot.hasData) {
-                      final List<ChatMessage> messages = snapshot.data!;
-                      if (messages.isNotEmpty) {
-                        return ListView.builder(
-                          reverse: true,
-                          itemCount: messages.length,
-                          physics: BouncingScrollPhysics(),
-                          itemBuilder: (context, index) {
-                            final chatMessage = messages[index];
-                            return MessageCard(
-                              cm: chatMessage,
-                            );
-                          },
-                        );
-                      } else {
-                        return Center(
-                          child: Text(
-                            "How to remove diseases in crop",
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 23,
-                            ),
-                          ),
-                        );
-                      }
-                    } else {
-                      return Center(child: Text("No messages available."));
-                    }
-                }
-              },
-            ),
-          ),
-          buildChatInput(),
-        ],
-      ),
-    );
+   return Consumer<AppUserProvider>(builder: (context, userProvider, child){return Scaffold(
+     body: Column(
+       children: [
+         Expanded(
+           child: StreamBuilder<List<ChatMessage>>(
+             stream: ChatApi().getChatMessages(),
+             builder: (context, snapshot) {
+               switch (snapshot.connectionState) {
+                 case ConnectionState.waiting:
+                 case ConnectionState.none:
+                 // return Center(child: CircularProgressIndicator());
+                 case ConnectionState.active:
+                 case ConnectionState.done:
+                   if (snapshot.hasData) {
+                     final List<ChatMessage> messages = snapshot.data!;
+                     if (messages.isNotEmpty) {
+                       return ListView.builder(
+                         reverse: true,
+                         itemCount: messages.length,
+                         physics: BouncingScrollPhysics(),
+                         itemBuilder: (context, index) {
+                           final chatMessage = messages[index];
+                           return MessageCard(
+                             cm: chatMessage,
+                           );
+                         },
+                       );
+                     } else {
+                       return Center(
+                         child: Text(
+                           "How to remove diseases in crop",
+                           style: TextStyle(
+                             color: Colors.grey,
+                             fontSize: 23,
+                           ),
+                         ),
+                       );
+                     }
+                   } else {
+                     return Center(child: Text("No messages available."));
+                   }
+               }
+             },
+           ),
+         ),
+         buildChatInput(userProvider.user!),
+       ],
+     ),
+   );}) ;
   }
 
-  Widget buildChatInput() {
+  Widget buildChatInput(AppUser user) {
     final mq = MediaQuery.of(context).size;
 
     return Padding(
@@ -158,7 +161,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 ChatMessage userMessage = ChatMessage(isAi: false, text: _textController.text);
                 ChatApi.sendMessage(userMessage).then((_) {
 
-                  ApiService().postTextAndFetchJson('http://192.168.137.85:5000', _textController.text).then((response) {
+                  ApiService.getDiseaseSolution(user.curDeaseas!).then((response) {
 
                     ChatMessage aiMessage = ChatMessage(
                         isAi: true,
@@ -177,7 +180,6 @@ class _ChatScreenState extends State<ChatScreen> {
 
                     print('Error fetching API response: $error');
                   }).whenComplete(() {
-
                     _textController.text = "";
                   });
                 }).catchError((error) {
@@ -186,7 +188,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 });
 
               }
-              // Handle sending a message
+
             },
             color: AppColors.theme['primaryColor'],
             child: Icon(Icons.send),

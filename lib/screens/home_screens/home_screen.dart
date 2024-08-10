@@ -4,10 +4,9 @@ import 'package:hack_24/screens/home_screens/tab_screens/agreeculture_ai.dart';
 import 'package:hack_24/screens/home_screens/tab_screens/home_tab_screen.dart';
 import 'package:hack_24/screens/home_screens/tab_screens/price_pridiction.dart';
 import 'package:hack_24/screens/home_screens/tab_screens/profile.dart';
-import 'package:hack_24/screens/home_screens/tab_screens/scan_history.dart';
+import 'package:hack_24/screens/home_screens/tab_screens/yeid_production.dart';
 import 'package:hack_24/screens/utils/color.dart';
 
-import '../../apis/auth_apis/auth_api.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> children = [
     HomeTabScreen(),
-    ScanHistory(),
+    YieldPrediction(),
     PricePrediction(),
     AgreecultureAi(),
     Profile(),
@@ -67,8 +66,8 @@ class _HomeScreenState extends State<HomeScreen> {
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.history),
-              label: 'History',
+              icon: Icon(Icons.production_quantity_limits_sharp),
+              label: 'Production',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.price_check_sharp),
@@ -94,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case 0:
         return HomeTabScreen();
       case 1:
-        return  ScanHistory() ;
+        return  YieldPrediction() ;
       case 2:
         return  PricePrediction() ;
       case 3  :

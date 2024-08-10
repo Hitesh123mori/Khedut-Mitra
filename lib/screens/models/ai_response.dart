@@ -1,27 +1,27 @@
 class AIResponse {
-  final String bestMedicine;
-  final String amountPerAcre;
-  final String approximateTime;
+  final String best_pesticide;
+  final String amount_per_acre;
+  final String recovery_time;
 
   AIResponse({
-    required this.bestMedicine,
-    required this.amountPerAcre,
-    required this.approximateTime,
+    required this.best_pesticide,
+    required this.amount_per_acre,
+    required this.recovery_time,
   });
 
   factory AIResponse.fromJson(Map<String, dynamic> json) {
     return AIResponse(
-      bestMedicine: json['bestMedicine'],
-      amountPerAcre: json['amountPerAcre'],
-      approximateTime: json['approximateTime'],
+      best_pesticide: json['best_pesticide'],
+      amount_per_acre: json['amount_per_acre'],
+      recovery_time: json['recovery_time'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'bestMedicine': bestMedicine,
-      'amountPerAcre': amountPerAcre,
-      'approximateTime': approximateTime,
+      'best_pesticide': best_pesticide,
+      'amount_per_acre': amount_per_acre,
+      'recovery_time': recovery_time,
     };
   }
 }
