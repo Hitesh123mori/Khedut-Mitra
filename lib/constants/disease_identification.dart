@@ -20,7 +20,7 @@ class Dintification {
 
   static final List<DImage> diseaseImages = [
     DImage(
-      path: 'assets/images/dirty_blog.jpq',
+      path: 'assets/images/dirst_blog.jpg',
       Dname: 'Dirty Blog',
       name: "Demo A",
       id: 1,
